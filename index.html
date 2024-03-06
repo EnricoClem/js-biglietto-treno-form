@@ -10,19 +10,21 @@
         <h1>Aquista il tuo biglietto del treno!</h1>
         <h3>Compila il seguente form per sapere il prezzo:</h3>
 
-        <ul>
-            <li>
-                <p>Kilometri da percorrere:</p>
-                <input type="text" id="km" placeholder="km">
-            </li>
-            <li>
-                <p>La tua età:</p>
-                <input type="text" id="age" placeholder="età">
-            </li>
-            <li>
-                <button type="submit">Calcola il prezzo</button>
-            </li>
-        </ul>        
+        <p>
+            <label for="km">Kilometri da percorrere:</label>
+            <input type="text" id="km" placeholder="km">
+        </p>
+        <p>
+            <label for="age">Seleziona lo sconto in base alla tua età:</label>
+            <select name="age" id="discount">
+                <option selected value="">Nesuno</option>
+                <option value="under">Minorenni</option>
+                <option value="over">Over 65</option>
+            </select>
+        </p>
+        <div>
+            <button type="submit">Calcola il prezzo</button>
+        </div>
     </main>
     
     <script src="app.js"></script>

@@ -10,9 +10,9 @@
 const buttonElement = document.querySelector('[type="submit"]'); //element | null
 console.log(buttonElement)
 
-// - recuperare dal dom il numero dei km ed età
+// - recuperare dal dom il numero dei km e sconto
 const inputKmElement = document.getElementById('km'); //element
-const inputAgeElement = document.getElementById('age'); //element
+const inputDiscountElement = document.getElementById('discount'); //element
 
 // - agganciare il click sul bottone ad una funzione per ascoltare l'evento
 buttonElement.addEventListener('click', function () {
@@ -24,9 +24,8 @@ buttonElement.addEventListener('click', function () {
     console.log('Km:', travelLength);
 
     // Richiesta dell'età e salvare il valore in numero
-    const inputAgeValue = inputAgeElement.value; //element
-    const age = parseInt(inputAgeValue); //string
-    console.log('Età:', age);
+    const selectDiscountValue = inputDiscountElement.value; //element
+    console.log('Sconto:', selectDiscountValue);
 
     // Calcolare il prezzo base del biglietto
     // Ogni km equivale a 0,21 euro => nKm * costo per km = prezzo base
@@ -37,11 +36,11 @@ buttonElement.addEventListener('click', function () {
     let discount = 0 //number
 
     // Se l'età è inferiore ai 18 applicare uno sconto del 20%
-    if (age < 18) {
+    if (selectDiscountValue === 'under') {
         discount = basePrice * 0.2 //number
 
     // Se l'età è superiore ai 65 applicare uno sconto del 40%
-    } else if (age > 65) {
+    } else if (selectDiscountValue === 'over') {
         discount = basePrice * 0.4 //number
     }
 
