@@ -14,6 +14,9 @@ console.log(buttonElement)
 const inputKmElement = document.getElementById('km'); //element
 const inputDiscountElement = document.getElementById('discount'); //element
 
+// - recuperare dal dom l'ID relativo alla stampa del biglietto completo
+const ticketElement = document.getElementById('ticket')
+
 // - agganciare il click sul bottone ad una funzione per ascoltare l'evento
 buttonElement.addEventListener('click', function () {
     console.log('Calcolo prezzo')
@@ -30,7 +33,7 @@ buttonElement.addEventListener('click', function () {
     // Calcolare il prezzo base del biglietto
     // Ogni km equivale a 0,21 euro => nKm * costo per km = prezzo base
     const basePrice = travelLength * 0.21; //number
-    console.log('Prezzo base:', basePrice)
+    console.log('Prezzo base:', basePrice.toFixed(2))
 
     // Calcolo dello sconto
     let discount = 0 //number
@@ -49,4 +52,26 @@ buttonElement.addEventListener('click', function () {
 
     // Riportare in console il prezzo finale con massimo 2 decimali
     console.log('Prezzo finale:', finalPrice.toFixed(2))
+
+    // Stampa del biglietto
+    ticketElement.innerHTML = `
+    <table>
+        <thead>
+            <tr>
+                <th>Km</th>
+                <th>Sconto</th>
+                <th>Prezzo base</th>
+                <th>Prezzo scontato</th>                        
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>${ travelLength }</td>
+                <td>${ discount.toFixed(2) }</td>
+                <td>${ basePrice.toFixed(2) }</td>
+                <td>${ finalPrice.toFixed(2) }</td>
+            </tr>
+        </tbody>
+    </table>
+    `
 })
